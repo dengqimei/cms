@@ -14,6 +14,7 @@
 <link rel="stylesheet" type="text/css"
 	href="../theme/1/css/easyui-tabs.css">
 <script type="text/javascript" src="../js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="../js/jquery.form.js"></script>
 <script type="text/javascript" src="../js/jquery.easyui.min.js"></script>
 <script type="text/javascript" src="../theme/1/js/base.js"></script>
 </head>
@@ -39,13 +40,21 @@
 			<div class="centent">
 				<div class="left">
 					<ul class="baseUI">
-						<li url="toAddCategory.action"><a href="#"><em class="base_basicset"></em><span>添加栏目</span></a></li>
-						<li url="toCategoryManager.action"><a href="#"><em class="base_userset"></em><span>栏目管理</span></a></li>
-						<li url=""><a href="#"><em class="base_roll"></em><span>信息发布</span></a></li>
-						<li url=""><a href="#"><em class="base_sys"></em><span>系统设置</span></a></li>
+						<li url="toAddCategory.action">
+						    <a href="#"><em class="base_basicset"></em><span>添加栏目</span></a>
+						</li>
+						<li url="toCategoryManager.action">
+						    <a href="#"><em class="base_userset"></em><span>栏目管理</span></a>
+						</li>
+						<li url="">
+						    <a href="#"><em class="base_roll"></em><span>信息发布</span></a>
+						</li>
+						<li url="">
+						    <a href="#"><em class="base_sys"></em><span>信息管理</span></a>
+						</li>
 					</ul>
 				</div>
-				<div class="right">
+				<div class="right" style="padding:30px">
 					
 				</div>
 				<div class="clear"></div>

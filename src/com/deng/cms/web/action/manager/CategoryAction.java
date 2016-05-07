@@ -1,4 +1,8 @@
 package com.deng.cms.web.action.manager;
+/**
+ * 后台栏目管理
+ * */
+import java.util.List;
 
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Result;
@@ -11,10 +15,15 @@ import com.opensymphony.xwork2.ActionSupport;
 public class CategoryAction extends ActionSupport{
 
 	private static final long serialVersionUID = 1L;
-;
+	/**
+	 * 同名传参
+	 * */
 	private String name;
-	private String number;
+	private Integer code;
 	
+	private List<Category> categoryList;
+	
+	//创建service层对象，方便action各个方法调用
 	private ICategoryService categoryService=new CategoryServiceImpl();
 	/**
 	 * 跳转到添加栏目页面
@@ -31,6 +40,7 @@ public class CategoryAction extends ActionSupport{
 	@Action(value="toCategoryManager",
 			results={@Result(name="success",location="/WEB-INF/jsp/manager/categoryManager.jsp")})
 	public String toCategoryManager(){
+		categoryList=categoryService.list();
 		return SUCCESS;//"success"
 	}
 	
@@ -39,7 +49,7 @@ public class CategoryAction extends ActionSupport{
 	 * */
 	@Action(value="addCategory")
 	public void addCategory(){
-		Category category = new Category(null, name,number);
+		Category category=new Category(name,code);
 		categoryService.add(category);
 	}
 
@@ -51,12 +61,20 @@ public class CategoryAction extends ActionSupport{
 		this.name = name;
 	}
 
-	public String getNumber() {
-		return number;
+	public Integer getCode() {
+		return code;
 	}
 
-	public void setNumber(String number) {
-		this.number = number;
+	public void setCode(Integer code) {
+		this.code = code;
+	}
+
+	public List<Category> getCategoryList() {
+		return categoryList;
+	}
+
+	public void setCategoryList(List<Category> categoryList) {
+		this.categoryList = categoryList;
 	}
 
 }

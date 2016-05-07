@@ -6,19 +6,17 @@ package com.deng.cms.bean;
 public class Category {
 	private Long id;
 	private String name;
-	private String number;
-	
+	private Integer code;
+
 	public Category(){
 		
 	}
 	
-	public Category(Long id, String name, String number) {
+	public Category(String name, Integer code) {
 		super();
-		this.id = id;
 		this.name = name;
-		this.number = number;
+		this.code = code;
 	}
-
 	public Long getId() {
 		return id;
 	}
@@ -31,11 +29,11 @@ public class Category {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getNumber() {
-		return number;
+	public Integer getCode() {
+		return code;
 	}
-	public void setNumber(String number) {
-		this.number = number;
+	public void setCode(Integer code) {
+		this.code = code;
 	}
 	
 }

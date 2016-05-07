@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 		<div class="logo_sign">
 			<div class="logo"></div>
 			<div class="sign">
@@ -11,13 +12,14 @@
 		</div>
 		<div class="nav">
 			<ul class="navUI">
-				<li><a href="toIndex.action">首页</a></li>
-				<li><a href="toList.action">教师风采</a></li>
-				<li><a href="javascript:void(0);">爱在身边</a></li>
-				<li><a href="javascript:void(0);">好书相伴</a></li>
-				<li><a href="javascript:void(0);">读书心得</a></li>
-				<li><a href="javascript:void(0);">智慧课堂</a></li>
-				<li><a href="javascript:void(0);">教育教研</a></li>
-				<li><a href="javascript:void(0);">特色活动</a></li>
+			<!--  
+			<s:iterator value="categoryList" var="list">
+				<li><a href="toIndex.action">${list.name }</a></li>
+		    </s:iterator>
+		    -->
+		    <c:forEach items="${categoryList }" var="category">
+				<li><a href="toIndex.action">${category.name }</a></li>
+		    </c:forEach>
+
 			</ul>
 		</div>
