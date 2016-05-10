@@ -18,6 +18,7 @@ public class CategoryAction extends ActionSupport{
 	/**
 	 * 同名传参
 	 * */
+	private Long id;
 	private String name;
 	private Integer code;
 	
@@ -51,6 +52,18 @@ public class CategoryAction extends ActionSupport{
 	public void addCategory(){
 		Category category=new Category(name,code);
 		categoryService.add(category);
+	}
+	@Action(value="delCategory")
+	public void delCategory(){
+		categoryService.delete(id);
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getName() {

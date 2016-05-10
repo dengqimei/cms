@@ -73,6 +73,20 @@ public class CategoryDao {
 	 * 删除栏目
 	 * */
 	public void deleteById(Long id){
-		
+		try{
+			Connection conn=null;
+			PreparedStatement pstmt=null;
+			try{
+				conn=ConnectionFactory.getConn();
+				String sql="delete from t_category where id=?";
+				pstmt=conn.prepareStatement(sql);
+				pstmt.setLong(1, id);
+				pstmt.executeUpdate();
+			}finally{
+				ConnectionFactory.close(null, pstmt, conn);
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 	}
 }
