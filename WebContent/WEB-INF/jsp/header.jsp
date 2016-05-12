@@ -17,7 +17,7 @@
 				<li><a href="toIndex.action">${list.name }</a></li>
 		    </s:iterator>
 		    -->
-		    <c:forEach items="${categoryList }" var="category">
+		    <c:forEach items="${categoryList }" var="category" begin="0" end="8">
 				<li><a href="toIndex.action">${category.name }</a></li>
 		    </c:forEach>
 

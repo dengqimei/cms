@@ -14,10 +14,14 @@ $(function(){
 });
 
 </script>
+<center>
 <h1>添加栏目页面</h1>
-<hr>
-<form action="addCategory.action" method="post" id="addCategoryForm">
-	栏目名称:<input type="text" name="name"/><br/>
-	栏目编号:<input type="text" name="code"/><br/>
-	<input type="submit" value="提交"/><br/>
-</form>
+<br>
+<div>
+	<form action="addCategory.action" method="post" id="addCategoryForm">
+		栏目名称:<input type="text" name="name" /><br /> 
+		栏目编号:<input type="text"name="code" /><br /> 
+		<input type="submit" value="提交" /><br />
+	</form>
+</div>
+</center>

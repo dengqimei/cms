@@ -3,11 +3,12 @@
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <style>
         th{
+            background: lightyellow;
             font-size:16px;
             font-family:微软雅黑;
         }
         td{
-            font-size:16px;
+            font-size:14px;
             font-family:微软雅黑;
             text-align:center;
         }
@@ -27,9 +28,27 @@
 			<td>${category.name }</td>
 			<td>${category.code }</td>
 			<td>
-			   <a href="javascript:void(0)">修改</a>
-			   <a href="delCategory.action?id=${category.id }">删除</a>
+			   <a href="javascript:void(0)" val="${category.id }" class="upd">修改</a>
+			   <a href="javascript:void(0)" val="${category.id }" class="del">删除</a>
 			</td>
 		</tr>
 		</c:forEach>
 	</table>
+<script>
+$(function(){
+	$(".upd").off();
+	$(".upd").on("click",function(){
+		alert("功能未完善");
+	});
+	
+	$(".del").off();
+	$(".del").on("click",function(){
+		var id = $(this).attr("val");
+		$.post("delCategory.action",{id:id},function(){
+			$(".baseUI li :contains('栏目管理')").trigger("click");
+			alert("删除成功")
+		});
+	});		
+});
+	
+</script>

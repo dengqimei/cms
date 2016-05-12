@@ -5,8 +5,11 @@ import java.util.List;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Result;
 
+import com.deng.cms.bean.Article;
 import com.deng.cms.bean.Category;
+import com.deng.cms.service.IArticleService;
 import com.deng.cms.service.ICategoryService;
+import com.deng.cms.service.impl.ArticleServiceImpl;
 import com.deng.cms.service.impl.CategoryServiceImpl;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -14,9 +17,18 @@ public class BaseAction extends ActionSupport{
 
 	private static final long serialVersionUID = 1L;
 	
+	private List<Article> articleList;
 	private List<Category> categoryList;
 	private ICategoryService categoryService=new CategoryServiceImpl();
-
+	private IArticleService articleService=new ArticleServiceImpl();
+	
+	
+	public List<Article> getArticleList() {
+		return articleList;
+	}
+	public void setArticleList(List<Article> articleList) {
+		this.articleList = articleList;
+	}
 	public List<Category> getCategoryList() {
 		return categoryList;
 	}
@@ -29,6 +41,7 @@ public class BaseAction extends ActionSupport{
 	@Action(value="toIndex",results={@Result(name="success",location="/WEB-INF/jsp/index.jsp")})
 	public String toIndex(){
 		categoryList=categoryService.list();
+		articleList=articleService.list();
 		return SUCCESS;
 	}
 	/**

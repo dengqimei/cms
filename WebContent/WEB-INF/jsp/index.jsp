@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -38,25 +39,11 @@
 						</div>
 						<div class="cont">
 							<ul class="discipUI">
-								<li><a href="toContent.action" class="txt_title">地壳运动的奥秘</a><span
-									class="txt_discipline">语文</span><span class="txt_time">2015-03-20</span>
+							<c:forEach items="${articleList }" var="article" begin="0" end="5">
+							    <li><a href="toContent.action" class="txt_title">${article.title }</a><span
+									class="txt_discipline">${article.course }</span><span class="txt_time">${article.date }</span>
 								</li>
-								<li><a href="javascript:void(0)" class="txt_title">地壳运动的奥秘</a><span
-									class="txt_discipline">语文</span><span class="txt_time">2015-03-20</span>
-								</li>
-								<li><a href="javascript:void(0)" class="txt_title">地壳运动的奥秘</a><span
-									class="txt_discipline">语文</span><span class="txt_time">2015-03-20</span>
-								</li>
-								<li><a href="javascript:void(0)" class="txt_title">地壳运动的奥秘</a><span
-									class="txt_discipline">语文</span><span class="txt_time">2015-03-20</span>
-								</li>
-								<li><a href="javascript:void(0)" class="txt_title">地壳运动的奥秘</a><span
-									class="txt_discipline">语文</span><span class="txt_time">2015-03-20</span>
-								</li>
-								<li><a href="javascript:void(0)" class="txt_title">地壳运动的奥秘</a><span
-									class="txt_discipline">语文</span><span class="txt_time">2015-03-20</span>
-								</li>
-
+		                    </c:forEach>
 							</ul>
 						</div>
 					</div>
