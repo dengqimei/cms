@@ -20,9 +20,8 @@
 			<th>编号</th>
 			<th>标题</th>
 			<th>作者</th>
-			<th>内容</th>
-			<th>学科</th>
-			<th>时间</th>
+			<th>发布时间</th>
+			<th>点击次数</th>
 			<th>操作</th>
 		</tr>
 		<c:forEach items="${articleList }" var="article" varStatus="status">
@@ -31,9 +30,8 @@
 			<td><input type="checkbox" value=${article.id }></td>
 			<td>${article.title }</td>
 			<td>${article.author }</td>
-			<td width="50%">${article.content }</td>
-			<td>${article.course }</td>
-			<td>${article.date }</td>
+			<td>${article.publishDate }</td>
+			<td>${article.clickTimes }</td>
 			<td>
 			    <a href="javascript:void(0)" val="${article.id }" class="upd">修改</a>
 			    <a href="javascript:void(0)" val="${article.id }" class="del">删除</a>

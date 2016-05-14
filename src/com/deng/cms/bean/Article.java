@@ -1,73 +1,57 @@
 package com.deng.cms.bean;
 
+import java.util.Date;
+
 public class Article {
 
 	private Long id;
 	private String title;
 	private String author;
 	private String content;
-	private String course;
-	private String date;
+	private Date publishDate;
+	private Integer clickTimes;
+	private Long c_id;
 	
-	public Article(){
-		
-	}
-	
-	public Article(String title, String author, String content,String course,String date) {
-		super();
-		this.title = title;
-		this.author = author;
-		this.content = content;
-		this.course=course;
-		this.date=date;
-	}
-
 	public Long getId() {
 		return id;
 	}
-
 	public void setId(Long id) {
 		this.id = id;
 	}
-
 	public String getTitle() {
 		return title;
 	}
-
 	public void setTitle(String title) {
 		this.title = title;
 	}
-
 	public String getAuthor() {
 		return author;
 	}
-
 	public void setAuthor(String author) {
 		this.author = author;
 	}
-
 	public String getContent() {
 		return content;
 	}
-
 	public void setContent(String content) {
 		this.content = content;
 	}
-
-	public String getCourse() {
-		return course;
+	public Date getPublishDate() {
+		return publishDate;
 	}
-
-	public void setCourse(String course) {
-		this.course = course;
+	public void setPublishDate(Date publishDate) {
+		this.publishDate = publishDate;
 	}
-
-	public String getDate() {
-		return date;
+	public Integer getClickTimes() {
+		return clickTimes;
 	}
-
-	public void setDate(String date) {
-		this.date = date;
+	public void setClickTimes(Integer clickTimes) {
+		this.clickTimes = clickTimes;
 	}
-	
+	public Long getC_id() {
+		return c_id;
+	}
+	public void setC_id(Long c_id) {
+		this.c_id = c_id;
+	}
 }

@@ -34,14 +34,14 @@
 				<div class="box">
 					<div class="box_b">
 						<div class="title">
-							<span class="txt_title">好书相伴</span> <span class="txt_discipline">学科</span>
+							<span class="txt_title">好书相伴</span> <span class="txt_discipline">作者</span>
 							<span class="txt_time">更多>></span>
 						</div>
 						<div class="cont">
 							<ul class="discipUI">
 							<c:forEach items="${articleList }" var="article" begin="0" end="5">
 							    <li><a href="toContent.action" class="txt_title">${article.title }</a><span
-									class="txt_discipline">${article.course }</span><span class="txt_time">${article.date }</span>
+									class="txt_discipline">${article.author }</span><span class="txt_time">${article.publishDate }</span>
 								</li>
 		                    </c:forEach>
 							</ul>

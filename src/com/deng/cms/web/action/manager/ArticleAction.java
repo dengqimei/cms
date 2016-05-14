@@ -1,36 +1,51 @@
 package com.deng.cms.web.action.manager;
 
+import java.util.Date;
 import java.util.List;
+
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Result;
 
 import com.deng.cms.bean.Article;
+import com.deng.cms.bean.Category;
 import com.deng.cms.service.IArticleService;
+import com.deng.cms.service.ICategoryService;
 import com.deng.cms.service.impl.ArticleServiceImpl;
+import com.deng.cms.service.impl.CategoryServiceImpl;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class ArticleAction extends ActionSupport {
 
 	private IArticleService articleService =new ArticleServiceImpl();
+	private ICategoryService categoryService=new CategoryServiceImpl();
+	
 	private Long id;
 	private String title;
 	private String author;
 	private String content;
-	private String course;
-	private String date;
+	private Long c_id;
+	
 	private List<Article> articleList;
+	private List<Category> categoryList;
 	
 	private static final long serialVersionUID = 1L;
 	
 	@Action(value="toAddArticle",results={@Result(name="success"
 			,location="/WEB-INF/jsp/manager/addArticle.jsp")})
 	public String toAddArticle(){
+		categoryList=categoryService.list();
 		return SUCCESS;
 	}
 
 	@Action(value="addArticle")
 	public void addArticle(){
-		Article article=new Article(title,author,content,course,date);
+		Article article=new Article();
+		article.setTitle(title);
+		article.setAuthor(author);
+		article.setC_id(c_id);
+		article.setContent(content);
+		article.setPublishDate(new Date());
+		article.setClickTimes(0);
 		articleService.add(article);
 	}
 	@Action(value="toArticleManager",results={@Result(name="success"
@@ -77,21 +92,12 @@ public class ArticleAction extends ActionSupport {
 		this.content = content;
 	}
 	
-
-	public String getCourse() {
-		return course;
+	public Long getC_id() {
+		return c_id;
 	}
 
-	public void setCourse(String course) {
-		this.course = course;
-	}
-
-	public String getDate() {
-		return date;
-	}
-
-	public void setDate(String date) {
-		this.date = date;
+	public void setC_id(Long c_id) {
+		this.c_id = c_id;
 	}
 
 	public List<Article> getArticleList() {
@@ -101,4 +107,13 @@ public class ArticleAction extends ActionSupport {
 	public void setArticleList(List<Article> articleList) {
 		this.articleList = articleList;
 	}
+
+	public List<Category> getCategoryList() {
+		return categoryList;
+	}
+
+	public void setCategoryList(List<Category> categoryList) {
+		this.categoryList = categoryList;
+	}
+	
 }

@@ -11,8 +11,4 @@ public interface IArticleService {
 	public void deleteById(Long id);
 	
 	public List<Article> list();
-	
-	public int count();
-	
-	public List<Article> findByPage(int page);
 }

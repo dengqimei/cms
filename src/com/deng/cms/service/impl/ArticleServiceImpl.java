@@ -23,16 +23,4 @@ public class ArticleServiceImpl implements IArticleService {
 		List<Article> articleList=articleDao.findAll();
 		return articleList;
 	}
-
-	@Override
-	public int count() {
-		return articleDao.count();
-	}
-
-	@Override
-	public List<Article> findByPage(int page) {
-		List<Article> list=articleDao.findByPage(page);
-		return list;
-	}
-
 }
