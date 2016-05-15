@@ -11,4 +11,8 @@ public interface IArticleService {
 	public void deleteById(Long id);
 	
 	public List<Article> list();
+	
+	public List<Article> findByCid(Long c_id);
+	
+	public List<Article> findById(Long id);
 }

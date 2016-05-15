@@ -88,4 +88,82 @@ public class ArticleDao {
 		}
 		return list;
 	}
+	/**
+	 * 通过栏目id查询文章
+	 * */
+	public List<Article> findByCid(Long c_id){
+		List<Article> list=new ArrayList<Article>();
+		try{
+			Connection conn=null;
+			PreparedStatement pstmt=null;
+			ResultSet rs=null;
+			try{
+				conn=ConnectionFactory.getConn();
+				String sql="select * from t_article where c_id=?";
+				pstmt=conn.prepareStatement(sql);
+				pstmt.setLong(1, c_id);
+				rs=pstmt.executeQuery();
+				while(rs.next()){
+					Long id=rs.getLong("id");
+					String title=rs.getString("title");
+					String author=rs.getString("author");
+					String content=rs.getString("content");
+					Date publishDate=rs.getDate("publishDate");
+					Integer clickTimes=rs.getInt("clickTimes");
+					Article article=new Article();
+					article.setId(id);
+					article.setTitle(title);
+					article.setAuthor(author);
+					article.setContent(content);
+					article.setPublishDate(publishDate);
+					article.setClickTimes(clickTimes);
+					list.add(article);
+				}
+			}finally{
+				ConnectionFactory.close(rs, pstmt, conn);
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return list;
+	}
+	/**
+	 * 通过文章id查询文章
+	 * */
+	public List<Article> findById(Long id){
+		List<Article> list=new ArrayList<Article>();
+		try{
+			Connection conn=null;
+			PreparedStatement pstmt=null;
+			ResultSet rs=null;
+			try{
+				conn=ConnectionFactory.getConn();
+				String sql="select * from t_article where id=?";
+				pstmt=conn.prepareStatement(sql);
+				pstmt.setLong(1, id);
+				rs=pstmt.executeQuery();
+				while(rs.next()){
+					String title=rs.getString("title");
+					String author=rs.getString("author");
+					String content=rs.getString("content");
+					Date publishDate=rs.getDate("publishDate");
+					Integer clickTimes=rs.getInt("clickTimes");
+					Long c_id=rs.getLong("c_id");
+					Article article=new Article();
+					article.setTitle(title);
+					article.setAuthor(author);
+					article.setContent(content);
+					article.setPublishDate(publishDate);
+					article.setClickTimes(clickTimes);
+					article.setC_id(c_id);
+					list.add(article);
+				}
+			}finally{
+				ConnectionFactory.close(rs, pstmt, conn);
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return list;
+	}
 }

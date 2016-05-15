@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -21,96 +22,26 @@
 			<div class="congw">
 				<div class="conlist">
 					<div class="search_result">
+					<c:forEach items="${articleList }" var="article">
 						<div class="art_box">
 							<div class="art_img">
-								<a href="#"><img src="theme/1/images/front/doc.png"></a>
+								<a href="toContent.action?id=${article.id }"><img src="theme/1/images/front/doc.png"></a>
 							</div>
 							<div class="art_txt">
 								<div class="title">
-									2009-2010年人教版小学教科书<span class="icon_pen"></span>
+									${article.title }<span class="icon_pen"></span>
 								</div>
 								<div class="tag_txt">
 									<span>栏目名称：爱在身边</span><span class="pl30">学科：语文</span><span
 										class="pl30">资源类型：教案</span>
 								</div>
 								<div class="tag_txt">
-									<span>撰写人：赵帅</span><span class="pl30">上传时间：2013-02-10</span>
+									<span>撰写人：${article.author }</span><span class="pl30">上传时间：${article.publishDate }</span>
 								</div>
 							</div>
 
 						</div>
-						<div class="art_box">
-							<div class="art_img">
-								<a href="#"><img src="theme/1/images/front/doc.png"></a>
-							</div>
-							<div class="art_txt">
-								<div class="title">
-									2009-2010年人教版小学教科书<span class="icon_pen"></span>
-								</div>
-								<div class="tag_txt">
-									<span>栏目名称：爱在身边</span><span class="pl30">学科：语文</span><span
-										class="pl30">资源类型：教案</span>
-								</div>
-								<div class="tag_txt">
-									<span>撰写人：赵帅</span><span class="pl30">上传时间：2013-02-10</span>
-								</div>
-							</div>
-
-						</div>
-						<div class="art_box">
-							<div class="art_img">
-								<a href="#"><img src="theme/1/images/front/doc.png"></a>
-							</div>
-							<div class="art_txt">
-								<div class="title">
-									2009-2010年人教版小学教科书<span class="icon_pen"></span>
-								</div>
-								<div class="tag_txt">
-									<span>栏目名称：爱在身边</span><span class="pl30">学科：语文</span><span
-										class="pl30">资源类型：教案</span>
-								</div>
-								<div class="tag_txt">
-									<span>撰写人：赵帅</span><span class="pl30">上传时间：2013-02-10</span>
-								</div>
-							</div>
-
-						</div>
-						<div class="art_box">
-							<div class="art_img">
-								<a href="#"><img src="theme/1/images/front/doc.png"></a>
-							</div>
-							<div class="art_txt">
-								<div class="title">
-									2009-2010年人教版小学教科书<span class="icon_pen"></span>
-								</div>
-								<div class="tag_txt">
-									<span>栏目名称：爱在身边</span><span class="pl30">学科：语文</span><span
-										class="pl30">资源类型：教案</span>
-								</div>
-								<div class="tag_txt">
-									<span>撰写人：赵帅</span><span class="pl30">上传时间：2013-02-10</span>
-								</div>
-							</div>
-
-						</div>
-						<div class="art_box">
-							<div class="art_img">
-								<a href="#"><img src="theme/1/images/front/doc.png"></a>
-							</div>
-							<div class="art_txt">
-								<div class="title">
-									2009-2010年人教版小学教科书<span class="icon_pen"></span>
-								</div>
-								<div class="tag_txt">
-									<span>栏目名称：爱在身边</span><span class="pl30">学科：语文</span><span
-										class="pl30">资源类型：教案</span>
-								</div>
-								<div class="tag_txt">
-									<span>撰写人：赵帅</span><span class="pl30">上传时间：2013-02-10</span>
-								</div>
-							</div>
-
-						</div>
+						</c:forEach>
 						<div class="page">分页</div>
 					</div>
 

@@ -23,4 +23,14 @@ public class ArticleServiceImpl implements IArticleService {
 		List<Article> articleList=articleDao.findAll();
 		return articleList;
 	}
+
+	@Override
+	public List<Article> findByCid(Long c_id) {
+		return articleDao.findByCid(c_id);
+	}
+
+	@Override
+	public List<Article> findById(Long id) {
+		return articleDao.findById(id);
+	}
 }

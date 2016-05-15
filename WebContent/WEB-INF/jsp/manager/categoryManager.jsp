@@ -43,11 +43,14 @@ $(function(){
 	
 	$(".del").off();
 	$(".del").on("click",function(){
-		var id = $(this).attr("val");
-		$.post("delCategory.action",{id:id},function(){
-			$(".baseUI li :contains('栏目管理')").trigger("click");
-			alert("删除成功")
-		});
+		var flag = confirm("确定删除吗？");
+		if(flag){
+		    var id = $(this).attr("val");
+		    $.post("delCategory.action",{id:id},function(){
+			    $(".baseUI li :contains('栏目管理')").trigger("click");
+			    alert("删除成功")
+		    });
+		}
 	});		
 });
 	

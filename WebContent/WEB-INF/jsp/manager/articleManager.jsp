@@ -49,11 +49,14 @@ $(function(){
 	
 	$(".del").off();
 	$(".del").on("click",function(){
-		var id = $(this).attr("val");
-		$.post("delArticle.action",{id:id},function(){
-			$(".baseUI li :contains('信息管理')").trigger("click");
-			alert("删除成功")
-		});
+		var flag = confirm("确定删除吗？");
+		if(flag){
+		    var id = $(this).attr("val");
+		    $.post("delArticle.action",{id:id},function(){
+			    $(".baseUI li :contains('信息管理')").trigger("click");
+			    alert("删除成功")
+		    });
+		}
 	});		
 });
 	

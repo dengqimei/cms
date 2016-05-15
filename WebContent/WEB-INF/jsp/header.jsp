@@ -18,8 +18,8 @@
 		    </s:iterator>
 		    -->
 		    <li><a href="toIndex.action">首页</a></li>
-		    <c:forEach items="${categoryList }" var="category" begin="1" end="8">
-				<li><a href="toList.action">${category.name }</a></li>
+		    <c:forEach items="${categoryList }" var="category" begin="1" end="9">
+				<li><a href="toList.action?id=${category.id }">${category.name }</a></li>
 		    </c:forEach>
 
 			</ul>

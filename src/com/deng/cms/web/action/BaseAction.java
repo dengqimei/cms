@@ -2,6 +2,7 @@ package com.deng.cms.web.action;
 
 import java.util.List;
 
+import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Result;
 
@@ -17,12 +18,20 @@ public class BaseAction extends ActionSupport{
 
 	private static final long serialVersionUID = 1L;
 	
+	private Long id;
+	
 	private List<Article> articleList;
 	private List<Category> categoryList;
 	private ICategoryService categoryService=new CategoryServiceImpl();
 	private IArticleService articleService=new ArticleServiceImpl();
 	
 	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 	public List<Article> getArticleList() {
 		return articleList;
 	}
@@ -50,6 +59,7 @@ public class BaseAction extends ActionSupport{
 	@Action(value="toList",results={@Result(name="success",location="/WEB-INF/jsp/list.jsp")})
 	public String toList(){
 		categoryList=categoryService.list();
+		articleList=articleService.findByCid(id);
 		return SUCCESS;
 	}
 	/**
@@ -58,6 +68,8 @@ public class BaseAction extends ActionSupport{
 	@Action(value="toContent",results={@Result(name="success",location="/WEB-INF/jsp/content.jsp")})
 	public String toContent(){
 		categoryList=categoryService.list();
+		Long id=Long.parseLong(ServletActionContext.getRequest().getParameter("id"));
+		articleList=articleService.findById(id);
 		return SUCCESS;
 	}
 }
