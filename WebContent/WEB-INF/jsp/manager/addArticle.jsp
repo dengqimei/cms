@@ -13,7 +13,6 @@
 			return false;
 		});
 	});
-
 </script>
 <h1>信息发布</h1>
 <br>

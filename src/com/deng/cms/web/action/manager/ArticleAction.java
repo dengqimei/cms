@@ -54,6 +54,23 @@ public class ArticleAction extends ActionSupport {
 		articleList=articleService.list();
 		return SUCCESS;
 	}
+	@Action(value="toUpdArticle",results={@Result(name="success",location="/WEB-INF/jsp/manager/updarticle.jsp")})
+	public String toUpdArticle(){
+		articleList=articleService.findById(id);
+		categoryList=categoryService.list();
+		return SUCCESS;
+	}
+	@Action(value="updArticle")
+	public void updArticle(){
+		Article article=new Article();
+		article.setId(id);
+		article.setTitle(title);
+		article.setAuthor(author);
+		article.setC_id(c_id);
+		article.setContent(content);
+		article.setPublishDate(new Date());
+		articleService.update(article);
+	}
 	@Action(value="delArticle")
 	public void delArticle(){
 		articleService.deleteById(id);

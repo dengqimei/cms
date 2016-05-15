@@ -29,14 +29,13 @@
 							</div>
 							<div class="art_txt">
 								<div class="title">
-									${article.title }<span class="icon_pen"></span>
+									<a href="toContent.action?id=${article.id }">${article.title }</a><span class="icon_pen"></span>
 								</div>
 								<div class="tag_txt">
-									<span>栏目名称：爱在身边</span><span class="pl30">学科：语文</span><span
-										class="pl30">资源类型：教案</span>
+									<span>栏目名称：${article.name }</span>
 								</div>
 								<div class="tag_txt">
-									<span>撰写人：${article.author }</span><span class="pl30">上传时间：${article.publishDate }</span>
+									<span>作者：${article.author }</span><span class="pl30">上传时间：${article.publishDate }</span>
 								</div>
 							</div>
 

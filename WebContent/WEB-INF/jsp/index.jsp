@@ -7,10 +7,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>首页</title>
 <link rel="stylesheet" type="text/css" href="theme/1/css/common.css">
-<link rel="stylesheet" type="text/css"
-	href="theme/1/css/front/style.css">
+<link rel="stylesheet" type="text/css" href="theme/1/css/front/style.css">
 </head>
-
 <body>
 	<div id="main">
 		<div class="top">
@@ -29,177 +27,69 @@
 		</div>
 		<div class="content">
 			<div class="congw">
-
 				<div class="clear"></div>
 				<div class="box">
-					<div class="box_b">
+				
+				<c:forEach items="${categoryList }" var="category" begin="1" end="3">
+					<div class="box_b" name="id" id="${category.id }">
 						<div class="title">
-							<span class="txt_title">国内</span> <span class="txt_discipline">作者</span>
-							<span class="txt_time">更多>></span>
+							<span class="txt_title">${category.name }</span> <span class="txt_discipline">作者</span>
+							<span class="txt_time"><a href="toList.action?id=${category.id }">更多>></a></span>
 						</div>
 						<div class="cont">
 							<ul class="discipUI">
 							<c:forEach items="${articleList }" var="article" begin="0" end="5">
-							    <li><a href="toContent.action" class="txt_title">${article.title }</a>
-							        <span class="txt_discipline">${article.author }</span>
-							        <span class="txt_time">${article.publishDate }</span>
+							    <li><a href="toContent.action?id=${article.id }" class="txt_title">${article.title }</a><span
+									class="txt_discipline">${article.author }</span><span class="txt_time">${article.publishDate }</span>
 								</li>
-		                    </c:forEach>
+							</c:forEach>
 							</ul>
 						</div>
 					</div>
-
-					<div class="box_b">
+				</c:forEach>
+				</div>
+				
+				<div class="box">
+				
+				<c:forEach items="${categoryList }" var="category" begin="4" end="6">
+					<div class="box_f">
 						<div class="title">
-							<span class="txt_title">爱在身边</span> <span class="txt_discipline">学科</span>
-							<span class="txt_time">更多>></span>
+							<span class="txt_title">${category.name }</span> <span class="txt_discipline">作者</span>
+							<span class="txt_time"><a href="toList.action?id=${category.id }">更多>></a></span>
 						</div>
 						<div class="cont">
 							<ul class="discipUI">
-								<li><a href="javascript:void(0)" class="txt_title">地壳运动的奥秘</a><span
-									class="txt_discipline">语文</span><span class="txt_time">2015-03-20</span>
+								<c:forEach items="${articleList }" var="article" begin="0" end="5">
+							    <li><a href="toContent.action?id=${article.id }" class="txt_title">${article.title }</a><span
+									class="txt_discipline">${article.author }</span><span class="txt_time">${article.publishDate }</span>
 								</li>
-								<li><a href="javascript:void(0)" class="txt_title">地壳运动的奥秘</a><span
-									class="txt_discipline">语文</span><span class="txt_time">2015-03-20</span>
-								</li>
-								<li><a href="javascript:void(0)" class="txt_title">地壳运动的奥秘</a><span
-									class="txt_discipline">语文</span><span class="txt_time">2015-03-20</span>
-								</li>
-								<li><a href="javascript:void(0)" class="txt_title">地壳运动的奥秘</a><span
-									class="txt_discipline">语文</span><span class="txt_time">2015-03-20</span>
-								</li>
-								<li><a href="javascript:void(0)" class="txt_title">地壳运动的奥秘</a><span
-									class="txt_discipline">语文</span><span class="txt_time">2015-03-20</span>
-								</li>
-								<li><a href="javascript:void(0)" class="txt_title">地壳运动的奥秘</a><span
-									class="txt_discipline">语文</span><span class="txt_time">2015-03-20</span>
-								</li>
-
+							</c:forEach>
 							</ul>
 						</div>
 					</div>
-
-					<div class="box_b">
-						<div class="title">
-							<span class="txt_title">特色活动</span> <span class="txt_discipline">学科</span>
-							<span class="txt_time">更多>></span>
-						</div>
-						<div class="cont">
-							<ul class="discipUI">
-								<li><a href="javascript:void(0)" class="txt_title">地壳运动的奥秘</a><span
-									class="txt_discipline">语文</span><span class="txt_time">2015-03-20</span>
-								</li>
-								<li><a href="javascript:void(0)" class="txt_title">地壳运动的奥秘</a><span
-									class="txt_discipline">语文</span><span class="txt_time">2015-03-20</span>
-								</li>
-								<li><a href="javascript:void(0)" class="txt_title">地壳运动的奥秘</a><span
-									class="txt_discipline">语文</span><span class="txt_time">2015-03-20</span>
-								</li>
-								<li><a href="javascript:void(0)" class="txt_title">地壳运动的奥秘</a><span
-									class="txt_discipline">语文</span><span class="txt_time">2015-03-20</span>
-								</li>
-								<li><a href="javascript:void(0)" class="txt_title">地壳运动的奥秘</a><span
-									class="txt_discipline">语文</span><span class="txt_time">2015-03-20</span>
-								</li>
-								<li><a href="javascript:void(0)" class="txt_title">地壳运动的奥秘</a><span
-									class="txt_discipline">语文</span><span class="txt_time">2015-03-20</span>
-								</li>
-
-							</ul>
-						</div>
-					</div>
+					</c:forEach>
 				</div>
 				<div class="box">
+				
+				<c:forEach items="${categoryList }" var="category" begin="7" end="9">
 					<div class="box_f">
 						<div class="title">
-							<span class="txt_title">教育科研</span> <span class="txt_discipline">学科</span>
-							<span class="txt_time">更多>></span>
+							<span class="txt_title">${category.name }</span> <span class="txt_discipline">作者</span>
+							<span class="txt_time"><a href="toList.action?id=${category.id }">更多>></a></span>
 						</div>
 						<div class="cont">
 							<ul class="discipUI">
-								<li><a href="javascript:void(0)" class="txt_title">地壳运动的奥秘</a><span
-									class="txt_discipline">语文</span><span class="txt_time">2015-03-20</span>
+								<c:forEach items="${articleList }" var="article" begin="0" end="5">
+							    <li><a href="toContent.action?id=${article.id }" class="txt_title">${article.title }</a><span
+									class="txt_discipline">${article.author }</span><span class="txt_time">${article.publishDate }</span>
 								</li>
-								<li><a href="javascript:void(0)" class="txt_title">地壳运动的奥秘</a><span
-									class="txt_discipline">语文</span><span class="txt_time">2015-03-20</span>
-								</li>
-								<li><a href="javascript:void(0)" class="txt_title">地壳运动的奥秘</a><span
-									class="txt_discipline">语文</span><span class="txt_time">2015-03-20</span>
-								</li>
-								<li><a href="javascript:void(0)" class="txt_title">地壳运动的奥秘</a><span
-									class="txt_discipline">语文</span><span class="txt_time">2015-03-20</span>
-								</li>
-								<li><a href="javascript:void(0)" class="txt_title">地壳运动的奥秘</a><span
-									class="txt_discipline">语文</span><span class="txt_time">2015-03-20</span>
-								</li>
-								<li><a href="javascript:void(0)" class="txt_title">地壳运动的奥秘</a><span
-									class="txt_discipline">语文</span><span class="txt_time">2015-03-20</span>
-								</li>
-
+							</c:forEach>
 							</ul>
 						</div>
 					</div>
-
-					<div class="box_f">
-						<div class="title">
-							<span class="txt_title">智慧课堂</span> <span class="txt_discipline">学科</span>
-							<span class="txt_time">更多>></span>
-						</div>
-						<div class="cont">
-							<ul class="discipUI">
-								<li><a href="javascript:void(0)" class="txt_title">地壳运动的奥秘</a><span
-									class="txt_discipline">语文</span><span class="txt_time">2015-03-20</span>
-								</li>
-								<li><a href="javascript:void(0)" class="txt_title">地壳运动的奥秘</a><span
-									class="txt_discipline">语文</span><span class="txt_time">2015-03-20</span>
-								</li>
-								<li><a href="javascript:void(0)" class="txt_title">地壳运动的奥秘</a><span
-									class="txt_discipline">语文</span><span class="txt_time">2015-03-20</span>
-								</li>
-								<li><a href="javascript:void(0)" class="txt_title">地壳运动的奥秘</a><span
-									class="txt_discipline">语文</span><span class="txt_time">2015-03-20</span>
-								</li>
-								<li><a href="javascript:void(0)" class="txt_title">地壳运动的奥秘</a><span
-									class="txt_discipline">语文</span><span class="txt_time">2015-03-20</span>
-								</li>
-								<li><a href="javascript:void(0)" class="txt_title">地壳运动的奥秘</a><span
-									class="txt_discipline">语文</span><span class="txt_time">2015-03-20</span>
-								</li>
-
-							</ul>
-						</div>
-					</div>
-
-					<div class="box_f">
-						<div class="title">
-							<span class="txt_title">智慧课堂</span> <span class="txt_discipline">学科</span>
-							<span class="txt_time">更多>></span>
-						</div>
-						<div class="cont">
-							<ul class="discipUI">
-								<li><a href="javascript:void(0)" class="txt_title">地壳运动的奥秘</a><span
-									class="txt_discipline">语文</span><span class="txt_time">2015-03-20</span>
-								</li>
-								<li><a href="javascript:void(0)" class="txt_title">地壳运动的奥秘</a><span
-									class="txt_discipline">语文</span><span class="txt_time">2015-03-20</span>
-								</li>
-								<li><a href="javascript:void(0)" class="txt_title">地壳运动的奥秘</a><span
-									class="txt_discipline">语文</span><span class="txt_time">2015-03-20</span>
-								</li>
-								<li><a href="javascript:void(0)" class="txt_title">地壳运动的奥秘</a><span
-									class="txt_discipline">语文</span><span class="txt_time">2015-03-20</span>
-								</li>
-								<li><a href="javascript:void(0)" class="txt_title">地壳运动的奥秘</a><span
-									class="txt_discipline">语文</span><span class="txt_time">2015-03-20</span>
-								</li>
-								<li><a href="javascript:void(0)" class="txt_title">地壳运动的奥秘</a><span
-									class="txt_discipline">语文</span><span class="txt_time">2015-03-20</span>
-								</li>
-
-							</ul>
-						</div>
-					</div>
+					</c:forEach>
 				</div>
+				
 				<div class="link">
 					<div class="linelink">
 						<span>友情链接：</span><a href="javascript:void(0)">上海教育网</a><a
@@ -209,7 +99,7 @@
 				</div>
 			</div>
 		</div>
+		</div>
 		<jsp:include page="footer.jsp"></jsp:include>
-	</div>
 </body>
 </html>

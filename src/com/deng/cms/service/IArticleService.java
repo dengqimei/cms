@@ -15,4 +15,6 @@ public interface IArticleService {
 	public List<Article> findByCid(Long c_id);
 	
 	public List<Article> findById(Long id);
+	
+	public void update(Article article);
 }

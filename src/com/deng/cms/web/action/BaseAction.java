@@ -25,13 +25,13 @@ public class BaseAction extends ActionSupport{
 	private ICategoryService categoryService=new CategoryServiceImpl();
 	private IArticleService articleService=new ArticleServiceImpl();
 	
-	
 	public Long getId() {
 		return id;
 	}
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
 	public List<Article> getArticleList() {
 		return articleList;
 	}
@@ -51,6 +51,7 @@ public class BaseAction extends ActionSupport{
 	public String toIndex(){
 		categoryList=categoryService.list();
 		articleList=articleService.list();
+		System.out.println(id);
 		return SUCCESS;
 	}
 	/**
@@ -68,7 +69,6 @@ public class BaseAction extends ActionSupport{
 	@Action(value="toContent",results={@Result(name="success",location="/WEB-INF/jsp/content.jsp")})
 	public String toContent(){
 		categoryList=categoryService.list();
-		Long id=Long.parseLong(ServletActionContext.getRequest().getParameter("id"));
 		articleList=articleService.findById(id);
 		return SUCCESS;
 	}

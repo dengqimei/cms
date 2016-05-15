@@ -1,16 +1,11 @@
 package com.deng.cms.common.test;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import com.deng.cms.bean.Article;
-import com.deng.cms.dao.ArticleDao;
+import com.deng.cms.dao.Dao;
 
 public class Daotest {
 	public static void main(String args[]){
-			List<Article> list=new ArrayList<Article>();
-			ArticleDao articleDao=new ArticleDao();
-			list=articleDao.findByCid((long)10);
-			System.out.println(list);
+		Dao dao=new Dao();
+		Long id=(long)8;
+		dao.updateById(id);
 	}
 }

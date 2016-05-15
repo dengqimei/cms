@@ -11,7 +11,15 @@ public class Article {
 	private Date publishDate;
 	private Integer clickTimes;
 	private Long c_id;
+	private String name;//所属栏目名称
 	
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	public Long getId() {
 		return id;
 	}
@@ -54,4 +62,20 @@ public class Article {
 	public void setC_id(Long c_id) {
 		this.c_id = c_id;
 	}
+	public Article(Long id, String title, String author, String content,
+			Date publishDate, Integer clickTimes, Long c_id) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.author = author;
+		this.content = content;
+		this.publishDate = publishDate;
+		this.clickTimes = clickTimes;
+		this.c_id = c_id;
+	}
+	public Article() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	
 }

@@ -99,24 +99,28 @@ public class ArticleDao {
 			ResultSet rs=null;
 			try{
 				conn=ConnectionFactory.getConn();
-				String sql="select * from t_article where c_id=?";
+				String sql="select t_article.*,t_category.`name` FROM t_article "
+						+ "INNER JOIN t_category ON t_article.c_id = t_category.Id "
+						+ "WHERE t_article.c_id = ?";
 				pstmt=conn.prepareStatement(sql);
 				pstmt.setLong(1, c_id);
 				rs=pstmt.executeQuery();
 				while(rs.next()){
-					Long id=rs.getLong("id");
+					String name=rs.getString("name");
 					String title=rs.getString("title");
 					String author=rs.getString("author");
 					String content=rs.getString("content");
 					Date publishDate=rs.getDate("publishDate");
 					Integer clickTimes=rs.getInt("clickTimes");
+					Long id=rs.getLong("id");
 					Article article=new Article();
-					article.setId(id);
 					article.setTitle(title);
 					article.setAuthor(author);
 					article.setContent(content);
 					article.setPublishDate(publishDate);
 					article.setClickTimes(clickTimes);
+					article.setId(id);
+					article.setName(name);
 					list.add(article);
 				}
 			}finally{
@@ -138,11 +142,14 @@ public class ArticleDao {
 			ResultSet rs=null;
 			try{
 				conn=ConnectionFactory.getConn();
-				String sql="select * from t_article where id=?";
+				String sql="select t_article.*,t_category.`name` FROM t_article "
+						+ "INNER JOIN t_category ON t_article.c_id = t_category.Id "
+						+ "WHERE t_article.id = ?";
 				pstmt=conn.prepareStatement(sql);
 				pstmt.setLong(1, id);
 				rs=pstmt.executeQuery();
 				while(rs.next()){
+					String name=rs.getString("name");
 					String title=rs.getString("title");
 					String author=rs.getString("author");
 					String content=rs.getString("content");
@@ -150,12 +157,14 @@ public class ArticleDao {
 					Integer clickTimes=rs.getInt("clickTimes");
 					Long c_id=rs.getLong("c_id");
 					Article article=new Article();
+					article.setName(name);
 					article.setTitle(title);
 					article.setAuthor(author);
 					article.setContent(content);
 					article.setPublishDate(publishDate);
 					article.setClickTimes(clickTimes);
 					article.setC_id(c_id);
+					article.setId(id);
 					list.add(article);
 				}
 			}finally{
@@ -165,5 +174,28 @@ public class ArticleDao {
 			e.printStackTrace();
 		}
 		return list;
+	}
+	public void update(Article article){
+		try{
+			Connection conn=null;
+			PreparedStatement pstmt=null;
+			try{
+				conn=ConnectionFactory.getConn();
+				String sql="update t_article set title=?,author=?,c_id=?,"
+						+ "content=?,publishDate=? where id=? ";
+				pstmt=conn.prepareStatement(sql);
+				pstmt.setString(1, article.getTitle());
+				pstmt.setString(2, article.getAuthor());
+				pstmt.setLong(3, article.getC_id());
+				pstmt.setString(4, article.getContent());
+				pstmt.setDate(5, new Date(article.getPublishDate().getTime()));
+				pstmt.setLong(6, article.getId());
+				pstmt.executeUpdate();
+			}finally{
+				ConnectionFactory.close(null, pstmt, conn);
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 	}
 }

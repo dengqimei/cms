@@ -21,18 +21,20 @@
 		<div class="content">
 			<div class="congw">
 				<div class="conarticle">
+				<c:forEach items="${articleList }" var="article">
 					<div class="position">
 						<span class="poshome">您现在的位置：</span> <a href="toIndex.action">首页</a> >> <a
-							href="#"></a>
+							href="toList.action?id=${article.c_id }">${article.name }</a>
 					</div>
-					<div class="title"></div>
+					<div class="title">${article.title }</div>
 					<div class="abstract">
-						<span>更新时间：2014-02-02</span> <span>发布单位：师悦科技</span> <span>发布人：系统管理员</span>
-						<span>点击999次</span>
+						<span>更新时间：${article.publishDate }</span> <span>发布人：${article.author }</span>
+						<span>点击${article.clickTimes }次</span>
 					</div>
 					<div class="details">
-						<p></p>
+						<p>${article.content }</p>
 					</div>
+					</c:forEach>
 				</div>
 				<div class="link">
 					<div class="linelink">
