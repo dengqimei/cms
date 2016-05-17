@@ -23,6 +23,7 @@ public class CategoryAction extends ActionSupport{
 	private Integer code;
 	
 	private List<Category> categoryList;
+	private Category category;
 	
 	//创建service层对象，方便action各个方法调用
 	private ICategoryService categoryService=new CategoryServiceImpl();
@@ -44,6 +45,12 @@ public class CategoryAction extends ActionSupport{
 		categoryList=categoryService.list();
 		return SUCCESS;//"success"
 	}
+	@Action(value="toUpdCategory",
+			results={@Result(name="success",location="/WEB-INF/jsp/manager/updCategory.jsp")})
+	public String toUpdCategory(){
+		category=categoryService.findById(id);
+		return SUCCESS;//"success"
+	}
 	
 	/**
 	 * 添加栏目
@@ -52,6 +59,14 @@ public class CategoryAction extends ActionSupport{
 	public void addCategory(){
 		Category category=new Category(name,code);
 		categoryService.add(category);
+	}
+	@Action(value="updCategory")
+	public void updCategory(){
+		Category category =new Category();
+		category.setId(id);
+		category.setName(name);
+		category.setCode(code);
+		categoryService.update(category);
 	}
 	@Action(value="delCategory")
 	public void delCategory(){
@@ -88,6 +103,14 @@ public class CategoryAction extends ActionSupport{
 
 	public void setCategoryList(List<Category> categoryList) {
 		this.categoryList = categoryList;
+	}
+
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
 	}
 
 }

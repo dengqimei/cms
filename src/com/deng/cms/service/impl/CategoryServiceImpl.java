@@ -1,6 +1,7 @@
 package com.deng.cms.service.impl;
 
 import java.util.List;
+
 import com.deng.cms.bean.Category;
 import com.deng.cms.dao.CategoryDao;
 import com.deng.cms.service.ICategoryService;
@@ -21,6 +22,16 @@ public class CategoryServiceImpl implements ICategoryService{
 	@Override
 	public void delete(long id) {
 		categoryDao.deleteById(id);
+	}
+
+	@Override
+	public Category findById(Long id) {
+		return categoryDao.findById(id);
+	}
+
+	@Override
+	public void update(Category category) {
+		categoryDao.update(category);
 	}
 	
 }

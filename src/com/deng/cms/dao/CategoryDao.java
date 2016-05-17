@@ -18,7 +18,6 @@ public class CategoryDao {
 	 * 保存栏目
 	 * */
 	public void save(Category category){
-	
 		try{
 			Connection conn=null;
 			PreparedStatement pstmt=null;
@@ -30,6 +29,51 @@ public class CategoryDao {
 				pstmt.setInt(2, category.getCode());
 				pstmt.executeUpdate();
 				
+			}finally{
+				ConnectionFactory.close(null, pstmt, conn);
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+	public Category findById(Long id){
+		Category category = new Category();
+		try{
+			Connection conn=null;
+			PreparedStatement pstmt=null;
+			ResultSet rs=null;
+			try{
+				conn=ConnectionFactory.getConn();
+				String sql="select * from t_category where id=?";
+				pstmt=conn.prepareStatement(sql);
+				pstmt.setLong(1, id);
+				rs=pstmt.executeQuery();
+				while(rs.next()){
+					category.setName(rs.getString("name"));
+					category.setCode(rs.getInt("code"));
+					category.setId(id);
+				}
+			}finally{
+				ConnectionFactory.close(rs, pstmt, conn);
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return category;
+	}
+	
+	public void update(Category category){
+		try{
+			Connection conn=null;
+			PreparedStatement pstmt=null;
+			try{
+				conn=ConnectionFactory.getConn();
+				String sql="update t_category set name=?,code=? where id=?";
+				pstmt=conn.prepareStatement(sql);
+				pstmt.setString(1, category.getName());
+				pstmt.setInt(2, category.getCode());
+				pstmt.setLong(3, category.getId());
+				pstmt.executeUpdate();
 			}finally{
 				ConnectionFactory.close(null, pstmt, conn);
 			}

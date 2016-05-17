@@ -10,7 +10,6 @@
 <link rel="stylesheet" type="text/css"
 	href="theme/1/css/front/style.css">
 </head>
-
 <body>
 	<div id="main">
 		<div class="top">
@@ -21,7 +20,6 @@
 		<div class="content">
 			<div class="congw">
 				<div class="conarticle">
-				<c:forEach items="${articleList }" var="article">
 					<div class="position">
 						<span class="poshome">您现在的位置：</span> <a href="toIndex.action">首页</a> >> <a
 							href="toList.action?id=${article.c_id }">${article.name }</a>
@@ -34,7 +32,6 @@
 					<div class="details">
 						<p>${article.content }</p>
 					</div>
-					</c:forEach>
 				</div>
 				<div class="link">
 					<div class="linelink">

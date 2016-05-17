@@ -30,13 +30,13 @@ public class ArticleServiceImpl implements IArticleService {
 	}
 
 	@Override
-	public List<Article> findById(Long id) {
-		return articleDao.findById(id);
+	public void update(Article article) {
+		articleDao.update(article);
 	}
 
 	@Override
-	public void update(Article article) {
-		articleDao.update(article);
+	public Article findById(Long id) {
+		return articleDao.findById(id);
 	}
 
 }

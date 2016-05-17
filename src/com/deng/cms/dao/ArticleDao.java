@@ -59,7 +59,7 @@ public class ArticleDao {
 			ResultSet rs=null;
 			try{
 				conn=ConnectionFactory.getConn();
-				String sql="select * from t_article";
+				String sql="select * from t_article order by t_article.publishDate DESC";
 				pstmt=conn.prepareStatement(sql);
 				rs=pstmt.executeQuery();
 				while(rs.next()){
@@ -101,7 +101,7 @@ public class ArticleDao {
 				conn=ConnectionFactory.getConn();
 				String sql="select t_article.*,t_category.`name` FROM t_article "
 						+ "INNER JOIN t_category ON t_article.c_id = t_category.Id "
-						+ "WHERE t_article.c_id = ?";
+						+ "WHERE t_article.c_id = ? order by t_article.publishDate DESC";
 				pstmt=conn.prepareStatement(sql);
 				pstmt.setLong(1, c_id);
 				rs=pstmt.executeQuery();
@@ -134,8 +134,8 @@ public class ArticleDao {
 	/**
 	 * 通过文章id查询文章
 	 * */
-	public List<Article> findById(Long id){
-		List<Article> list=new ArrayList<Article>();
+	public Article findById(Long id){
+		Article article=new Article();
 		try{
 			Connection conn=null;
 			PreparedStatement pstmt=null;
@@ -156,7 +156,6 @@ public class ArticleDao {
 					Date publishDate=rs.getDate("publishDate");
 					Integer clickTimes=rs.getInt("clickTimes");
 					Long c_id=rs.getLong("c_id");
-					Article article=new Article();
 					article.setName(name);
 					article.setTitle(title);
 					article.setAuthor(author);
@@ -165,7 +164,6 @@ public class ArticleDao {
 					article.setClickTimes(clickTimes);
 					article.setC_id(c_id);
 					article.setId(id);
-					list.add(article);
 				}
 			}finally{
 				ConnectionFactory.close(rs, pstmt, conn);
@@ -173,7 +171,7 @@ public class ArticleDao {
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-		return list;
+		return article;
 	}
 	public void update(Article article){
 		try{

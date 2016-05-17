@@ -21,6 +21,7 @@
 				<div class="banner">
 					<div class="banimg">
 						<img src="theme/1/images/front/banner.png">
+						
 					</div>
 				</div>
 			</div>
@@ -29,9 +30,8 @@
 			<div class="congw">
 				<div class="clear"></div>
 				<div class="box">
-				
 				<c:forEach items="${categoryList }" var="category" begin="1" end="3">
-					<div class="box_b" name="id" id="${category.id }">
+					<div class="box_b" id="${category.id }">
 						<div class="title">
 							<span class="txt_title">${category.name }</span> <span class="txt_discipline">作者</span>
 							<span class="txt_time"><a href="toList.action?id=${category.id }">更多>></a></span>
@@ -50,7 +50,6 @@
 				</div>
 				
 				<div class="box">
-				
 				<c:forEach items="${categoryList }" var="category" begin="4" end="6">
 					<div class="box_f">
 						<div class="title">

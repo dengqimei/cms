@@ -26,6 +26,7 @@ public class ArticleAction extends ActionSupport {
 	private Long c_id;
 	
 	private List<Article> articleList;
+	private Article article;
 	private List<Category> categoryList;
 	
 	private static final long serialVersionUID = 1L;
@@ -56,7 +57,7 @@ public class ArticleAction extends ActionSupport {
 	}
 	@Action(value="toUpdArticle",results={@Result(name="success",location="/WEB-INF/jsp/manager/updarticle.jsp")})
 	public String toUpdArticle(){
-		articleList=articleService.findById(id);
+		article=articleService.findById(id);
 		categoryList=categoryService.list();
 		return SUCCESS;
 	}
@@ -123,6 +124,14 @@ public class ArticleAction extends ActionSupport {
 
 	public void setArticleList(List<Article> articleList) {
 		this.articleList = articleList;
+	}
+
+	public Article getArticle() {
+		return article;
+	}
+
+	public void setArticle(Article article) {
+		this.article = article;
 	}
 
 	public List<Category> getCategoryList() {

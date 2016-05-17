@@ -4,7 +4,6 @@
 <h1>修改信息</h1>
 <br>
     <form action="updArticle.action" method="post" id="updArticleForm">
-    <c:forEach items="${articleList }" var="article">
         <input  type="hidden" name="id" value="${article.id }">
 	            文章标题：<input type="text" name="title" value="${article.title }"><br>
 	            文章作者：<input type="text" name="author" value="${article.author }"><br>
@@ -17,7 +16,6 @@
 	            文章内容：<br>
 	            <textarea rows="5" cols="40" name="content">${article.content }</textarea><br>
 	    <input type="submit" value="修改">
-	    </c:forEach>
     </form>
 <script>
 	$(function(){
@@ -25,7 +23,9 @@
 		form.off();
 		form.on("submit",function(){
 			form.ajaxSubmit(function(){
-				alert("修改成功！")
+				form[0].reset;
+				alert("修改成功！");
+				$(".baseUI li :contains('信息管理')").trigger("click");
 			});
 			return false;
 		});
