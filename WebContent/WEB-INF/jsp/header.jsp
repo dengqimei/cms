@@ -2,7 +2,7 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 		<div class="logo_sign">
-			<div class="logo"></div>
+			<a href="toIndex.action"><div class="logo"></div></a>
 			<div class="sign">
 				<span>欢迎您系统管理员</span>
 				<span class="sp_home">首页</span> 

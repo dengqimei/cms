@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-	<script>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<script>
 	$(function(){
 		var form = $("#addArticleForm");
 		form.off();
@@ -14,19 +14,37 @@
 		});
 	});
 </script>
-<h1>信息发布</h1>
-<br>
-    <form action="addArticle.action" method="post" id="addArticleForm">
-	            文章标题：<input type="text" name="title"><br>
-	            文章作者：<input type="text" name="author"><br>
-	            所属栏目：<select name="c_id">
-	                <option value="">---请选中---</option>
-	                <c:forEach items="${categoryList }" var="category">
-	                    <option value="${category.id }">${category.name }</option>
-	                </c:forEach>
-	           </select><br> 
-	            文章内容：<br>
-	            <textarea rows="5" cols="40" name="content"></textarea><br>
-	    
-	    <input type="submit" value="添加">
-    </form>
+<style>
+    table tr{
+        height:30px;
+    }
+</style>
+<form action="addArticle.action" method="post" id="addArticleForm">
+	<table style="border-collapse: collapse; width: 100%;">
+		<caption style="font-size:24px;">发布新闻</caption>
+		<tr>
+			<td width="70px">文章标题：</td>
+			<td><input type="text" name="title"></td>
+		</tr>
+		<tr>
+			<td>文章作者：</td>
+			<td><input type="text" name="author"></td>
+		</tr>
+		<tr>
+			<td>所属栏目：</td>
+			<td><select name="c_id">
+					<option value="">---请选中---</option>
+					<c:forEach items="${categoryList }" var="category">
+						<option value="${category.id }">${category.name }</option>
+					</c:forEach>
+			</select></td>
+		</tr>
+		<tr>
+			<td>文章内容：</td>
+			<td><textarea rows="5" cols="60" name="content"></textarea></td>
+		</tr>
+		<tr>
+			<td><input type="submit" value="发布"></td>
+		</tr>
+	</table>
+</form>

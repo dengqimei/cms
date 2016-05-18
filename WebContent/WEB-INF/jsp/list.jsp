@@ -38,7 +38,6 @@
 									<span>作者：${article.author }</span><span class="pl30">上传时间：${article.publishDate }</span>
 								</div>
 							</div>
-
 						</div>
 						</c:forEach>
 						<div class="page">分页</div>
@@ -47,10 +46,12 @@
 				</div>
 				<div class="link">
 					<div class="linelink">
-						<span>友情链接：</span><a href="javascript:void(0)">上海教育网</a><a
-							href="javascript:void(0)">上海教育网</a><a href="javascript:void(0)">上海教育网</a><a
-							href="javascript:void(0)">上海教育网</a><a href="javascript:void(0)">上海教育网</a><a
-							href="javascript:void(0)">上海教育网</a>
+						<span>友情链接：</span>
+						<a href="http://news.sina.com.cn/">新浪新闻</a>
+						<a href="http://mini.eastday.com/">头条新闻</a>
+						<a href="http://news.ifeng.com/">凤凰新闻</a>
+						<a href="http://www.huanqiu.com/">环球新闻</a>
+						<a href="http://www.xinhuanet.com/">新华网</a>
 					</div>
 				</div>
 			</div>

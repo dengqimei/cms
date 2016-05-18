@@ -13,7 +13,9 @@
             text-align:center;
         }
     </style>
-    <h1>所有文章信息</h1>
+    <center>
+    <h1>所有新闻信息</h1>
+    </center>
 <div>
 	<table border="1" style=" border-collapse:collapse; width:100%;">
 		<tr>

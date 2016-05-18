@@ -16,7 +16,7 @@ $(function(){
 
 </script>
 <center>
-<h1>添加栏目页面</h1>
+<h1>添加栏目</h1>
 <br>
 <div>
 	<form action="addCategory.action" method="post" id="addCategoryForm">

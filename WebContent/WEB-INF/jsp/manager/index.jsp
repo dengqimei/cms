@@ -30,7 +30,7 @@
 	<div class="main">
 		<div id="top">
 			<div class="top">
-				<div class="t_logo"></div>
+				<a href="toIndex.action"><div class="t_logo"></div></a>
 				<div class="t_sign">
 					<span>你好，管理员</span><a href="#" class="t_exit">退出</a>
 				</div>
@@ -55,7 +55,7 @@
 					</ul>
 				</div>
 				<div class="right" style="padding:30px">
-					
+
 				</div>
 				<div class="clear"></div>
 			</div>
