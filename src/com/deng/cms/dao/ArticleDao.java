@@ -106,7 +106,6 @@ public class ArticleDao {
 				pstmt.setLong(1, c_id);
 				rs=pstmt.executeQuery();
 				while(rs.next()){
-					String name=rs.getString("name");
 					String title=rs.getString("title");
 					String author=rs.getString("author");
 					String content=rs.getString("content");
@@ -120,7 +119,6 @@ public class ArticleDao {
 					article.setPublishDate(publishDate);
 					article.setClickTimes(clickTimes);
 					article.setId(id);
-					article.setName(name);
 					list.add(article);
 				}
 			}finally{
@@ -149,14 +147,12 @@ public class ArticleDao {
 				pstmt.setLong(1, id);
 				rs=pstmt.executeQuery();
 				while(rs.next()){
-					String name=rs.getString("name");
 					String title=rs.getString("title");
 					String author=rs.getString("author");
 					String content=rs.getString("content");
 					Date publishDate=rs.getDate("publishDate");
 					Integer clickTimes=rs.getInt("clickTimes");
 					Long c_id=rs.getLong("c_id");
-					article.setName(name);
 					article.setTitle(title);
 					article.setAuthor(author);
 					article.setContent(content);

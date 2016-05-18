@@ -22,7 +22,7 @@
 				<div class="conarticle">
 					<div class="position">
 						<span class="poshome">您现在的位置：</span> <a href="toIndex.action">首页</a> >> <a
-							href="toList.action?id=${article.c_id }">${article.name }</a>
+							href="toList.action?id=${article.c_id }">${category.name }</a>
 					</div>
 					<div class="title">${article.title }</div>
 					<div class="abstract">

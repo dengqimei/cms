@@ -32,7 +32,7 @@
 									<a href="toContent.action?id=${article.id }">${article.title }</a><span class="icon_pen"></span>
 								</div>
 								<div class="tag_txt">
-									<span>栏目名称：${article.name }</span>
+									<span>栏目名称：${category.name }</span>
 								</div>
 								<div class="tag_txt">
 									<span>作者：${article.author }</span><span class="pl30">上传时间：${article.publishDate }</span>

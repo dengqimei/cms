@@ -11,15 +11,8 @@ public class Article {
 	private Date publishDate;
 	private Integer clickTimes;
 	private Long c_id;
-	private String name;//所属栏目名称
 	
 	
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
 	public Long getId() {
 		return id;
 	}
